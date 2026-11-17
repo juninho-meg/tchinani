@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product 1 - Tchinani Store</title>
+
+    <!-- Lien vers le fichier CSS global -->
+    <link rel="stylesheet" href="css.css">
+
+    <!-- Meta Pixel Code (Decommenti w hot ID ta3ek ki t-bghih) -->
+    <!--
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._f)f._f=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    -->
+</head>
+
+<body>
+
+    <!-- Topbar Transparent -->
+    <header class="topbar">
+        <div class="left-icons">
+            <button class="icon-btn" type="button">
+                🛒 <span>Cart</span>
+            </button>
+            <button class="icon-btn" type="button">
+                🔍
+            </button>
+        </div>
+
+        <div class="logo">
+            TCHINANI
+        </div>
+
+        <button class="menu-btn" type="button">
+            ☰
+        </button>
+    </header>
+
+    <!-- Main Content ta Product & Checkout -->
+    <main class="product-page-main">
+
+        <!-- 1. Galerie ta l-Produit -->
+        <div class="product-gallery">
+            <div class="product-large-card">
+                <img id="mainImage" src="photo0.pnj.png" alt="Product Main">
+            </div>
+            
+            <div class="thumbnail-list">
+                <img src="photo0.pnj.png" alt="Thumb 1" class="thumb active" onclick="changeImage(this)">
+                <img src="photo1.pnj.png" alt="Thumb 2" class="thumb" onclick="changeImage(this)">
+                <img src="photo0.pnj.png" alt="Thumb 3" class="thumb" onclick="changeImage(this)">
+                <img src="photo1.pnj.png" alt="Thumb 4" class="thumb" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <!-- Informations ta l-Produit -->
+        <div class="product-info-box">
+            <h2>Product 1</h2>
+            <p class="product-price">5000 DA</p>
+            <p class="product-desc">Discover premium products for your lifestyle. High quality guaranteed for Tchinani Store customers.</p>
+        </div>
+
+        <!-- 2. Formulaire ta Les Coordonnées -->
+        <section class="checkout-section">
+            <h3>Commander ce produit</h3>
+            <form class="checkout-form" onsubmit="submitOrder(event)">
+                
+                <div class="form-group">
+                    <label for="fullname">Nom et Prénom (الإسم و اللقب)</label>
+                    <input type="text" id="fullname" placeholder="Ex: Mohamed Tchinani" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Numéro de Téléphone (رقم الهاتف)</label>
+                    <input type="tel" id="phone" placeholder="Ex: 06xxxxxxxx" pattern="[0-9]{9,10}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wilaya">Wilaya (الولاية)</label>
+                    <select id="wilaya" onchange="handleWilayaChange()" required>
+                        <option value="">Sélectionnez votre wilaya</option>
+                        <option value="Adrar">01 - Adrar</option>
+                        <option value="Chlef">02 - Chlef</option>
+                        <option value="Laghouat">03 - Laghouat</option>
+                        <option value="Oum El Bouaghi">04 - Oum El Bouaghi</option>
+                        <option value="Batna">05 - Batna</option>
+                        <option value="Béjaïa">06 - Béjaïa</option>
+                        <option value="Biskra">07 - Biskra</option>
+                        <option value="Béchar">08 - Béchar</option>
+                        <option value="Blida">09 - Blida</option>
+                        <option value="Bouira">10 - Bouira</option>
+                        <option value="Tamanrasset">11 - Tamanrasset</option>
+                        <option value="Tébessa">12 - Tébessa</option>
+                        <option value="Tlemcen">13 - Tlemcen</option>
+                        <option value="Tiaret">14 - Tiaret</option>
+                        <option value="Tizi Ouzou">15 - Tizi Ouzou</option>
+                        <option value="Algiers">16 - Alger</option>
+                        <option value="Djelfa">17 - Djelfa</option>
+                        <option value="Jijel">18 - Jijel</option>
+                        <option value="Sétif">19 - Sétif</option>
+                        <option value="Saïda">20 - Saïda</option>
+                        <option value="Skikda">21 - Skikda</option>
+                        <option value="Sidi Bel Abbès">22 - Sidi Bel Abbès</option>
+                        <option value="Annaba">23 - Annaba</option>
+                        <option value="Guelma">24 - Guelma</option>
+                        <option value="Constantine">25 - Constantine</option>
+                        <option value="Médéa">26 - Médéa</option>
+                        <option value="Mostaganem">27 - Mostaganem</option>
+                        <option value="M'Sila">28 - M'Sila</option>
+                        <option value="Mascara">29 - Mascara</option>
+                        <option value="Ouargla">30 - Ouargla</option>
+                        <option value="Oran">31 - Oran</option>
+                        <option value="El Bayadh">32 - El Bayadh</option>
+                        <option value="Illizi">33 - Illizi</option>
+                        <option value="Bordj Bou Arréridj">34 - Bordj Bou Arréridj</option>
+                        <option value="Boumerdès">35 - Boumerdès</option>
+                        <option value="El Tarf">36 - El Tarf</option>
+                        <option value="Tindouf">37 - Tindouf</option>
+                        <option value="Tissemsilt">38 - Tissemsilt</option>
+                        <option value="El Oued">39 - El Oued</option>
+                        <option value="Khenchela">40 - Khenchela</option>
+                        <option value="Souk Ahras">41 - Souk Ahras</option>
+                        <option value="Tipaza">42 - Tipaza</option>
+                        <option value="Mila">43 - Mila</option>
+                        <option value="Aïn Defla">44 - Aïn Defla</option>
+                        <option value="Naâma">45 - Naâma</option>
+                        <option value="Aïn Témouchent">46 - Aïn Témouchent</option>
+                        <option value="Ghardaïa">47 - Ghardaïa</option>
+                        <option value="Relizane">48 - Relizane</option>
+                        <option value="Timimoun">49 - Timimoun</option>
+                        <option value="Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
+                        <option value="Ouled Djellal">51 - Ouled Djellal</option>
+                        <option value="Béni Abbès">52 - Béni Abbès</option>
+                        <option value="In Salah">53 - In Salah</option>
+                        <option value="In Guezzam">54 - In Guezzam</option>
+                        <option value="Touggourt">55 - Touggourt</option>
+                        <option value="Djanet">56 - Djanet</option>
+                        <option value="El M'Ghair">57 - El M'Ghair</option>
+                        <option value="El Meniaa">58 - El Meniaa</option>
+                    </select>
+                </div>
+
+                <!-- Bureau / Adresse Select (Stop Desk) -->
+                <div class="form-group" id="bureau-group" style="display: none;">
+                    <label for="bureau">Bureau / Stop Desk (اختر المكتب أو المركز)</label>
+                    <select id="bureau">
+                        <option value="">Sélectionnez le bureau</option>
+                    </select>
+                </div>
+
+                <!-- Adresse / Commune -->
+                <div class="form-group">
+                    <label for="address">Adresse / Commune (العنوان أو البلدية)</label>
+                    <input type="text" id="address" placeholder="Ex: Es Senia, Oran" required>
+                </div>
+
+                <!-- Box Prix de Livraison & Options -->
+                <div class="delivery-box">
+                    <div class="delivery-header">
+                        <span>🚚 Prix de livraison (سعر التوصيل)</span>
+                        <span id="delivery-badge" class="badge-wait">اختر الولاية</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="section-label">Choisissez la couleur (اختر اللون من فضلك)</label>
+                        <div class="color-options">
+                            <label class="color-choice">
+                                <input type="radio" name="productColor" value="Noir" checked>
+                                <span class="color-dot" style="background-color: #000000;"></span>
+                                <span>Noir - أسود</span>
+                            </label>
+
+                            <label class="color-choice">
+                                <input type="radio" name="productColor" value="Bleu">
+                                <span class="color-dot" style="background-color: #2563EB;"></span>
+                                <span>Bleu - أزرق</span>
+                            </label>
+
+                            <label class="color-choice">
+                                <input type="radio" name="productColor" value="Blanc">
+                                <span class="color-dot" style="background-color: #FFFFFF;"></span>
+                                <span>Blanc - أبيض</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="delivery-options" class="delivery-options" style="display: none;">
+                        <label class="delivery-choice">
+                            <input type="radio" name="deliveryType" value="maison" checked onchange="updateTotal()">
+                            <div class="choice-info">
+                                <span class="choice-title">🏠 À domicile (للمنزل)</span>
+                                <span id="price-maison" class="choice-price">0 DA</span>
+                            </div>
+                        </label>
+
+                        <label class="delivery-choice">
+                            <input type="radio" name="deliveryType" value="bureau" onchange="updateTotal()">
+                            <div class="choice-info">
+                                <span class="choice-title">🏢 Stop Desk (للمكتب)</span>
+                                <span id="price-bureau" class="choice-price">0 DA</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Quantity Selector Box -->
+                    <div class="quantity-box">
+                        <label class="quantity-label">Quantité (الكمية)</label>
+                        <div class="qntt-controls">
+                            <button type="button" class="qntt-btn" onclick="qnttDown()">−</button>
+                            <span id="quantity-value" class="qntt-value">1</span>
+                            <input type="hidden" id="quantity-input" name="productQuantity" value="1">
+                            <button type="button" class="qntt-btn" onclick="qnttUp()">+</button>
+                        </div>
+                    </div>
+
+                    <div class="total-summary">
+                        <span>Total à payer (المجموع):</span>
+                        <span id="final-total" class="total-price">5000 DA</span>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-btn" class="submit-order-btn">Confirmer la commande</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Production Ready -->
+    <script>
+        // ==========================================
+        // CONFIGURATION DE L'API (LOCAL vs INTERNET)
+        // ==========================================
+        // Ki t-hébergi server.js f Render wela Railway, baddel had l-lien b l-lien ta3ek:
+        const PRODUCTION_API_URL = "https://tchinani-backend.onrender.com/api/orders";
+        
+        // Détection automatique: Localhost (PC) wela Internet (Production)
+        const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:")
+            ? "http://localhost:3000/api/orders"
+            : PRODUCTION_API_URL;
+
+        const productPrice = 5000;
+
+        // Tracking Source (Facebook / Instagram / Direct)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmSource = urlParams.get('utm_source');
+            if (utmSource) {
+                localStorage.setItem('traffic_source', utmSource);
+            }
+        });
+
+        const deliveryRates = {
+            "Oran": { maison: 400, bureau: 250 },
+            "Algiers": { maison: 500, bureau: 300 },
+            "Blida": { maison: 500, bureau: 300 },
+            "Constantine": { maison: 600, bureau: 350 },
+            "Sétif": { maison: 600, bureau: 350 },
+            "Tlemcen": { maison: 500, bureau: 300 },
+            "Adrar": { maison: 1100, bureau: 700 },
+            "Tamanrasset": { maison: 1400, bureau: 900 },
+            "default": { maison: 700, bureau: 400 }
+        };
+
+        let currentMaison = 0;
+        let currentBureau = 0;
+
+        // 1. Galerie d'images
+        function changeImage(element) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = element.src;
+
+            const thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // 2. Quantité (+ w -)
+        function qnttUp() {
+            let quantityValue = parseInt(document.getElementById('quantity-value').textContent);
+            if (quantityValue < 20) {
+                quantityValue++;
+                document.getElementById('quantity-value').textContent = quantityValue;
+                document.getElementById('quantity-input').value = quantityValue;
+                updateTotal();
+            }
+        }
+
+        function qnttDown() {
+            let quantityValue = parseInt(document.getElementById('quantity-value').textContent);
+            if (quantityValue > 1) {
+                quantityValue--;
+                document.getElementById('quantity-value').textContent = quantityValue;
+                document.getElementById('quantity-input').value = quantityValue;
+                updateTotal();
+            }
+        }
+
+        // 3. Wilaya Change w Gestion des Bureaux
+        function handleWilayaChange() {
+            const wilayaSelect = document.getElementById("wilaya");
+            const bureauGroup = document.getElementById("bureau-group");
+            const bureauSelect = document.getElementById("bureau");
+            const selectedWilaya = wilayaSelect.value;
+            const optionsDiv = document.getElementById("delivery-options");
+            const badge = document.getElementById("delivery-badge");
+
+            bureauSelect.innerHTML = '<option value="">Sélectionnez le bureau</option>';
+
+            if (selectedWilaya === "") {
+                optionsDiv.style.display = "none";
+                bureauGroup.style.display = "none";
+                badge.textContent = "اختر الولاية";
+                badge.className = "badge-wait";
+                currentMaison = 0;
+                currentBureau = 0;
+            } else {
+                if (wilayaBureaux[selectedWilaya]) {
+                    bureauGroup.style.display = "block";
+                    wilayaBureaux[selectedWilaya].forEach(bureau => {
+                        const option = document.createElement("option");
+                        option.value = bureau;
+                        option.textContent = bureau;
+                        bureauSelect.appendChild(option);
+                    });
+                } else {
+                    bureauGroup.style.display = "none";
+                }
+
+                const rates = deliveryRates[selectedWilaya] || deliveryRates["default"];
+                currentMaison = rates.maison;
+                currentBureau = rates.bureau;
+
+                document.getElementById("price-maison").textContent = currentMaison + " DA";
+                document.getElementById("price-bureau").textContent = currentBureau + " DA";
+
+                optionsDiv.style.display = "grid";
+                badge.className = "badge-active";
+            }
+            updateTotal();
+        }
+
+        // 4. Hisab Total Final
+        function updateTotal() {
+            const wilaya = document.getElementById("wilaya").value;
+            const badge = document.getElementById("delivery-badge");
+            const finalTotalEl = document.getElementById("final-total");
+            
+            const quantity = parseInt(document.getElementById("quantity-input").value) || 1;
+            const productsSubtotal = productPrice * quantity;
+
+            if (wilaya === "") {
+                finalTotalEl.textContent = productsSubtotal + " DA";
+                return;
+            }
+
+            const selectedType = document.querySelector('input[name="deliveryType"]:checked').value;
+            const shippingCost = (selectedType === "maison") ? currentMaison : currentBureau;
+
+            badge.textContent = shippingCost + " DA";
+            finalTotalEl.textContent = (productsSubtotal + shippingCost) + " DA";
+        }
+
+        // Base de données des 58 wilayas
+        const wilayaBureaux = {
+            "Adrar": ["Bureau Adrar Centre", "Timimoun Stop Desk"],
+            "Chlef": ["Bureau Chlef Centre", "Boukadir Bureau", "Tenes Bureau"],
+            "Laghouat": ["Bureau Laghouat Centre", "Aflou Bureau"],
+            "Oum El Bouaghi": ["Bureau Oum El Bouaghi Centre", "Ain Beida Bureau", "Ain M'lila Bureau"],
+            "Batna": ["Bureau Batna Centre", "Barika Bureau", "Ain Touta Bureau"],
+            "Béjaïa": ["Bureau Béjaïa Centre", "Akbou Bureau", "Amizour Bureau"],
+            "Biskra": ["Bureau Biskra Centre", "Sidi Okba Bureau"],
+            "Béchar": ["Bureau Béchar Centre"],
+            "Blida": ["Bureau Blida Centre", "Boufarik Bureau", "El Affroun Bureau"],
+            "Bouira": ["Bureau Bouira Centre", "Lakhdaria Bureau", "Sour El Ghozlane Bureau"],
+            "Tamanrasset": ["Bureau Tamanrasset Centre"],
+            "Tébessa": ["Bureau Tébessa Centre", "Cheria Bureau"],
+            "Tlemcen": ["Bureau Tlemcen Centre", "Maghnia Bureau", "Ghazaouet Bureau"],
+            "Tiaret": ["Bureau Tiaret Centre", "Frenda Bureau", "Ksar Chellala Bureau"],
+            "Tizi Ouzou": ["Bureau Tizi Ouzou Centre", "Azeffoun Bureau", "Draa Ben Khedda Bureau"],
+            "Algiers": ["Bureau Bab Ezzouar", "Bureau Cheraga", "Bureau Hydra", "Bureau Kouba", "Bureau Alger Centre", "Bureau Dar El Beida"],
+            "Djelfa": ["Bureau Djelfa Centre", "Messaad Bureau", "Hassi Bahbah Bureau"],
+            "Jijel": ["Bureau Jijel Centre", "El Taher Bureau"],
+            "Sétif": ["Bureau Sétif Centre", "El Eulma Bureau", "Ain Arnat Bureau"],
+            "Saïda": ["Bureau Saïda Centre"],
+            "Skikda": ["Bureau Skikda Centre", "Azzaba Bureau", "Collo Bureau"],
+            "Sidi Bel Abbès": ["Bureau Sidi Bel Abbès Centre", "Sfisef Bureau"],
+            "Annaba": ["Bureau Annaba Centre", "Seraidi Bureau", "El Bouni Bureau"],
+            "Guelma": ["Bureau Guelma Centre", "Oued Zenati Bureau"],
+            "Constantine": ["Bureau Ville Nouvelle Ali Mendjeli", "Bureau Constantine Centre", "Bureau Daksi", "El Khroub"],
+            "Médéa": ["Bureau Médéa Centre", "Ksar El Boukhari", "Berrouaghia"],
+            "Mostaganem": ["Bureau Mostaganem Centre", "Achaacha Bureau"],
+            "M'Sila": ["Bureau M'Sila Centre", "Boussaada Bureau", "Magra Bureau"],
+            "Mascara": ["Bureau Mascara Centre", "Sig Bureau", "Ghriss Bureau"],
+            "Ouargla": ["Bureau Ouargla Centre", "Hassi Messaoud Bureau"],
+            "Oran": ["Bureau Oran Centre (Bd de la Soummam)", "Bureau Es Senia", "Bureau Bir El Djir (USTO)", "Bureau Hai El Makkari"],
+            "El Bayadh": ["Bureau El Bayadh Centre"],
+            "Illizi": ["Bureau Illizi Centre"],
+            "Bordj Bou Arréridj": ["Bureau Bordj Bou Arréridj Centre", "Ras El Oued Bureau"],
+            "Boumerdès": ["Bureau Boumerdès Centre", "Bordj Menaiel", "Dellys"],
+            "El Tarf": ["Bureau El Tarf Centre", "El Kala Bureau", "Drean Bureau"],
+            "Tindouf": ["Bureau Tindouf Centre"],
+            "Tissemsilt": ["Bureau Tissemsilt Centre", "Theniet El Had"],
+            "El Oued": ["Bureau El Oued Centre", "Guemar Bureau"],
+            "Khenchela": ["Bureau Khenchela Centre", "Kais Bureau"],
+            "Souk Ahras": ["Bureau Souk Ahras Centre", "Sedrata Bureau"],
+            "Tipaza": ["Bureau Tipaza Centre", "Koléa Bureau", "Cherchell Bureau", "Hadjout Bureau"],
+            "Mila": ["Bureau Mila Centre", "Chelghoum Laid Bureau", "Tadjenanet Bureau"],
+            "Aïn Defla": ["Bureau Aïn Defla Centre", "Khemis Miliana", "El Abadia"],
+            "Naâma": ["Bureau Naâma Centre", "Mecheria Bureau"],
+            "Aïn Témouchent": ["Bureau Aïn Témouchent Centre", "Beni Saf Bureau"],
+            "Ghardaïa": ["Bureau Ghardaïa Centre", "Metlili Bureau", "Berriane Bureau"],
+            "Relizane": ["Bureau Relizane Centre", "Oued Rhiou Bureau", "Mazouna Bureau"],
+            "Timimoun": ["Bureau Timimoun Centre"],
+            "Bordj Badji Mokhtar": ["Bureau Bordj Badji Mokhtar Centre"],
+            "Ouled Djellal": ["Bureau Ouled Djellal Centre"],
+            "Béni Abbès": ["Bureau Béni Abbès Centre"],
+            "In Salah": ["Bureau In Salah Centre"],
+            "In Guezzam": ["Bureau In Guezzam Centre"],
+            "Touggourt": ["Bureau Touggourt Centre"],
+            "Djanet": ["Bureau Djanet Centre"],
+            "El M'Ghair": ["Bureau El M'Ghair Centre"],
+            "El Meniaa": ["Bureau El Meniaa Centre"]
+        };
+
+        // 5. Envoi de la commande au Backend
+        async function submitOrder(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById("submit-btn");
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Envoi en cours... ⏳";
+
+            const order = {
+                product: "Product 1",
+                fullname: document.getElementById("fullname").value,
+                phone: document.getElementById("phone").value,
+                wilaya: document.getElementById("wilaya").value,
+                bureau: document.getElementById("bureau").value || "Non spécifié",
+                address: document.getElementById("address").value,
+                color: document.querySelector('input[name="productColor"]:checked').value,
+                deliveryType: document.querySelector('input[name="deliveryType"]:checked').value,
+                quantity: parseInt(document.getElementById("quantity-input").value),
+                totalPrice: document.getElementById("final-total").textContent,
+                source: localStorage.getItem('traffic_source') || 'Direct',
+                date: new Date().toLocaleString("fr-DZ")
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(order)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // Déclencher événement Meta Pixel si activé
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Purchase', {
+                            value: parseInt(order.totalPrice),
+                            currency: 'DZD'
+                        });
+                    }
+
+                    alert("✅ Merci ! Votre commande a été confirmée.\nNuméro de suivi : " + result.orderId);
+                    window.location.reload();
+                } else {
+                    alert("❌ Erreur : " + (result.message || "Impossible d'enregistrer la commande."));
+                }
+            } catch (err) {
+                console.error("Erreur API:", err);
+                alert("⚠️ Erreur de connexion avec le serveur. Veuillez réessayer.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
+    </script>
+
+</body>
+</html>
